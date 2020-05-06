@@ -341,7 +341,7 @@ FilterRelief = R6Class("FilterRelief", inherit = Filter,
                                              task_type =  c("classif", "regr"),
                                              param_set = ParamSet$new(list(
                                                ParamInt$new("neighbours.count", default = 5),
-                                               ParamInt$new("sample.size",ndefault = 10)
+                                               ParamInt$new("sample.size", default = 10)
                                              )),
                                              packages = "",
                                              feature_types = c("integer", "numeric", "factor")) {
