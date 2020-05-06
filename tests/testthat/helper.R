@@ -8,7 +8,6 @@ expect_filter = function(f, task = NULL) {
     public = c("packages", "feature_types", "task_type", "param_set", "scores",
       "calculate")
   )
-
   expect_character(f$packages, any.missing = FALSE, unique = TRUE)
   expect_subset(f$task_type, mlr_reflections$task_types$type)
   expect_subset(f$feature_types, mlr_reflections$task_feature_types)

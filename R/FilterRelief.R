@@ -321,7 +321,7 @@ FilterRelief = R6Class("FilterRelief", inherit = Filter,
 
                      public = list(
 
-                       #' @description Create a FilterMRMR object.
+                       #' @description Create a FilterRelief object.
                        #' @param id (`character(1)`)\cr
                        #'   Identifier for the filter.
                        #' @param task_type (`character()`)\cr
@@ -343,7 +343,7 @@ FilterRelief = R6Class("FilterRelief", inherit = Filter,
                                                ParamInt$new("neighbours.count", default = 5),
                                                ParamInt$new("sample.size", default = 10)
                                              )),
-                                             packages = "",
+                                             packages = "mlr3",
                                              feature_types = c("integer", "numeric", "factor")) {
                          super$initialize(
                            id = id,
@@ -359,10 +359,13 @@ FilterRelief = R6Class("FilterRelief", inherit = Filter,
                      private = list(
 
                        .calculate = function(task, nfeat) {
-                         threads = self$param_set$values$neighbours.count %??% 5
-                         threads = self$param_set$values$sample.size %??% 10
-                         relief(getTaskFormula(task), data = getTaskData(task),
-                                neighbours.count = neighbours.count, sample.size = sample.size)$attr_importance
+                         neighbours.count = self$param_set$values$neighbours.count %??% 5
+                         sample.size = self$param_set$values$sample.size %??% 10
+                         result = relief(task$formula(), task$data(),
+                                neighbours.count = neighbours.count, sample.size = sample.size)
+                         named_result = result$attr_importance
+                         names(named_result) = rownames(result)
+                         named_result
                        }
                      )
 )
