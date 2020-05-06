@@ -317,7 +317,7 @@ relief <- function(formula, data, neighbours.count = 5, sample.size = 10) {
 #' filter = flt("relief")
 #' filter$calculate(task, nfeat = 2)
 #' as.data.table(filter)
-FilterMRMR = R6Class("FilterRelief", inherit = Filter,
+FilterRelief = R6Class("FilterRelief", inherit = Filter,
 
                      public = list(
 
