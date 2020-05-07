@@ -62,6 +62,7 @@ Collate:
     'FilterCarScore.R'
     'FilterCorrelation.R'
     'FilterDISR.R'
+    'FilterFCBF.R'
     'FilterFindCorrelation.R'
     'FilterImportance.R'
     'FilterInformationGain.R'

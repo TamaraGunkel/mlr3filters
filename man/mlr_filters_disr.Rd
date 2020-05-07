@@ -26,6 +26,7 @@ Other Filter:
 \code{\link{mlr_filters_carscore}},
 \code{\link{mlr_filters_cmim}},
 \code{\link{mlr_filters_correlation}},
+\code{\link{mlr_filters_fcbf}},
 \code{\link{mlr_filters_find_correlation}},
 \code{\link{mlr_filters_importance}},
 \code{\link{mlr_filters_information_gain}},
