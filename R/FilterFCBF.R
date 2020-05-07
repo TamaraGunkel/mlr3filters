@@ -223,6 +223,8 @@ FilterFCBF = R6Class("FilterFCBF", inherit = Filter,
                        initialize = function(id = "fcbf",
                                              task_type = c("classif"),
                                              param_set = ParamSet$new(list(
+                                               ParamDbl$new("thresh", default = 0.2),
+                                               ParamInt$new("n_genes", default = NO_DEF),
                                                ParamLgl$new("verbose", default = FALSE),
                                                ParamLgl$new("balance_classes", default = FALSE)
                                              )),
@@ -242,6 +244,8 @@ FilterFCBF = R6Class("FilterFCBF", inherit = Filter,
                      private = list(
 
                        .calculate = function(task, nfeat) {
+                         thresh = self$param_set$values$thresh %??% 0.2
+                         n_genes = self$param_set$values$n_genes %??% NULL
                          verbose = self$param_set$values$verbose %??% FALSE
                          balance_classes = self$param_set$values$balance_classes %??% FALSE
                          X = task$data(cols = task$feature_names)
@@ -249,7 +253,7 @@ FilterFCBF = R6Class("FilterFCBF", inherit = Filter,
                          disc_data =  FSelectorRcpp::discretize(X, Y)
                          Y = disc_data$Y
                          disc_data$Y = NULL
-                         result = fcbf(disc_data, Y, thresh = 0, n_genes = NULL, verbose = verbose,
+                         result = fcbf(disc_data, Y, thresh = thresh, n_genes = n_genes, verbose = verbose,
                               samples_in_rows = TRUE, balance_classes)
                          new_result = result$SU
                          names(new_result) = colnames(disc_data)[result$index]

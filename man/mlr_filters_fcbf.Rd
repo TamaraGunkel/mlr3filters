@@ -68,7 +68,8 @@ Create a FilterFCBF object.
 \if{html}{\out{<div class="r">}}\preformatted{FilterFCBF$new(
   id = "fcbf",
   task_type = c("classif"),
-  param_set = ParamSet$new(list(ParamLgl$new("verbose", default = FALSE),
+  param_set = ParamSet$new(list(ParamDbl$new("thresh", default = 0.2),
+    ParamInt$new("n_genes", default = NO_DEF), ParamLgl$new("verbose", default = FALSE),
     ParamLgl$new("balance_classes", default = FALSE))),
   packages = "FSelectorRcpp",
   feature_types = c("integer", "numeric", "factor", "ordered")
