@@ -47,6 +47,7 @@ Suggests:
     mlr3learners,
     mlr3measures,
     praznik,
+    Boruta,
     rpart,
     testthat
 Encoding: UTF-8

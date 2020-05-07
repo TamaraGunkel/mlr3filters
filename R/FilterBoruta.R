@@ -1,6 +1,6 @@
 #' @title Boruta Feature Selection Wrapper
 #'
-#' @name mlr_filters_jmim
+#' @name mlr_filters_boruta
 #'
 #' @description Boruta Feature Selection Wrapper calling
 #' [Boruta::Boruta()] in package \CRANpkg{Boruta}.
@@ -18,7 +18,7 @@ FilterBoruta = R6Class("FilterBoruta", inherit = Filter,
 
                      public = list(
 
-                       #' @description Create a FilterJMIM object.
+                       #' @description Create a FilterBoruta object.
                        #' @param id (`character(1)`)\cr
                        #'   Identifier for the filter.
                        #' @param task_type (`character()`)\cr
