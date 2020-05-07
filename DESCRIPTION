@@ -58,6 +58,7 @@ Collate:
     'mlr_filters.R'
     'FilterAUC.R'
     'FilterAnova.R'
+    'FilterBoruta.R'
     'FilterCMIM.R'
     'FilterCarScore.R'
     'FilterCorrelation.R'
