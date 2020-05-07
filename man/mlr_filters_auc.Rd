@@ -23,6 +23,7 @@ head(as.data.table(filter), 3)
 Other Filter: 
 \code{\link{Filter}},
 \code{\link{mlr_filters_anova}},
+\code{\link{mlr_filters_boruta}},
 \code{\link{mlr_filters_carscore}},
 \code{\link{mlr_filters_cmim}},
 \code{\link{mlr_filters_correlation}},
